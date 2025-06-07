@@ -3,16 +3,86 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="stylesheet.css"/>
+
+    Materialize
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet"> -->
+
+
     <title>BMI Calculator | Welcome</title>
+
 </head>
 
 <body>
-        <body>
-      <div class="container">
-            <h2>BMI CALCULATOR</h2>
-      </div>
-    </body>
+  <div class="header">
+      <h2>BMI Calculator</h2>
+  </div>
 
+  <div>Units of Measurement:<br>
+  <input type="radio" id="metric" name="measurement" value="Metric">
+  <label for="metric">Metric</label><br>
+  <input type="radio" id="imperial" name="measurement" value="Imperial">
+  <label for="imperial">Imperial</label><br><br>
+
+  <label for="weight">Weight:</label>
+  <input type="text" id="weight" name="weight" placeholder="Enter your weight..."><br><br>
+
+  <label for="height">Height:</label>
+  <input type="text" id="height" name="height" placeholder="Enter your height..."><br><br>
+  </div>
+
+
+  <div>
+    <button id="calc-button">Click to calculate</button>
+  </div>
+
+  <div id="result-container"></div>
+
+  <div class="header2" id="table-container">
+    <h4>Reference Table</h4>
+    <table>
+      <tr>
+        <th>BMI Category</th>
+        <th>BMI Range (kg/m2)</th>
+      </tr>
+      <tr>
+        <td>Underweight</td>
+        <td>Less than 18.5</td>
+      </tr>
+      <tr>
+        <td>Healthy Weight</td>
+        <td>18.5 to less than 25</td>
+      </tr>
+      <tr>
+        <td>Overweight</td>
+        <td>25 to less than 30</td>
+      </tr>
+      <tr>
+        <td>Obesity</td>
+        <td>30 or greater</td>
+      </tr>
+      <tr>
+        <td>Class 1 Obesity</td>
+        <td>30 to less than 35</td>
+      </tr>
+      <tr>
+        <td>Class 2 Obesity</td>
+        <td>35 to less than 40</td>
+      </tr>
+      <tr>
+        <td>Class 3 Obesity (Severe Obesity)</td>
+        <td>40 or greater</td>
+      </tr>
+    </table>
+  </div>
+
+  <script src="calculate.js"></script>
 </body>
 </html>
 
