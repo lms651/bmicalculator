@@ -1,21 +1,41 @@
 window.addEventListener("DOMContentLoaded", () => {
+    const buttonImperial = document.getElementById("imperial")
+    buttonImperial.addEventListener('click', showImperial)
+
     const buttonEl = document.getElementById("calc-button")
     buttonEl.addEventListener('click', calculateBMI)})
 
 function showResult(result) {
-    const bmiResult = document.getElementById("result-container").innerText = "YOUR RESULT = " + result.toFixed(2) + "YOUR CATEGORY = " + getBMICategory(result)
+    const bmiResult = document.getElementById("result-container").innerText = "YOUR RESULT = " + result.toFixed(2) + " YOUR CATEGORY = " + getBMICategory(result)
 }
 
 function calculateBMI() {
-    let userHeight = document.getElementById("height").value
-    let userWeight = document.getElementById("weight").value
-    const [value1, value2] = convertToMetric(userHeight, userWeight)
-    console.log(value1, value2)
-    const bmi = bmiCalculation(value1, value2)
-    console.log(bmi)
-    console.log(getBMICategory(bmi))
-    showResult(bmi)
+    if (isMetric()) {
+        let userHeight = document.getElementById("height-cm").value
+        let userWeight = document.getElementById("weight-kg").value
+        const bmi = bmiCalculation(userHeight, userWeight)
+        showResult(bmi)
+    } else {
+        let userHeightFt = document.getElementById("height-ft").value
+        let userHeightIn = document.getElementById("height-in").value
+        let userWeightLb = document.getElementById("weight-lb").value
+        const [value1, value2] = convertToMetric(userHeightFt, userHeightIn, userWeightLb)
+        const bmi = bmiCalculation(value1, value2)
+        console.log(getBMICategory(bmi))
+        showResult(bmi)
+    }
 }
+
+
+
+
+//     const [value1, value2] = convertToMetric(userHeight, userWeight)
+//     console.log(value1, value2)
+//     const bmi = bmiCalculation(value1, value2)
+//     console.log(bmi)
+//     console.log(getBMICategory(bmi))
+//     showResult(bmi)
+// }
 
 function isMetric() {
     if (document.getElementById("metric").checked) {
@@ -24,11 +44,21 @@ function isMetric() {
     return false
 }
 
-function convertToMetric(height, weight) {
-    if (isMetric()) {
-        return [height, weight]
-    }
-    return [height*2.54, weight*.453592] // converts to cm and kg
+function convertToMetric(heightFt, heightIn, weight) {
+    console.log(heightFt)
+    console.log(heightIn)
+    console.log(weight)
+
+    const heightFttoheightIn = Number(heightFt) * 12// converts feet & inches to in
+    console.log(heightFttoheightIn)
+    const heightTotalIn = heightFttoheightIn + Number(heightIn)
+    console.log(heightTotalIn)
+    const heightCm = heightTotalIn * 2.54 // converts in to cm
+
+    console.log(heightCm)
+    const weightKg = weight*.453592 // converts lb to kg
+    console.log(weightKg)
+    return [heightCm, weightKg]
 }
 
 function bmiCalculation(height, weight) {
@@ -48,5 +78,10 @@ function getBMICategory(bmi) {
         default: result = "Bad input value"; break;
     }
     return result
+}
+
+function showImperial() { // replaces metric input fields with imperial
+    document.getElementById("metric-units").style.display='none'
+    document.getElementById("imperial-units").style.display='block'
 }
 

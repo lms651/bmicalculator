@@ -17,6 +17,12 @@
 
     <title>BMI Calculator | Welcome</title>
 
+    <style>
+      #imperial-units {
+        display: none
+      }
+    </style>
+
 </head>
 
 <body>
@@ -28,13 +34,26 @@
   <input type="radio" id="metric" name="measurement" value="Metric" checked>
   <label for="metric">Metric</label><br>
   <input type="radio" id="imperial" name="measurement" value="Imperial">
-  <label for="imperial">Imperial</label><br><br>
+  <label for="imperial">Imperial</label>
+  </div><br>
 
-  <label for="weight">Weight:</label>
-  <input type="text" id="weight" name="weight" placeholder="Enter your weight..."><br><br>
+  <div id="metric-units">
+  <label for="weight">Weight (kg):</label>
+  <input type="text" id="weight-kg" name="weight" placeholder="Enter your weight..."><br><br>
 
-  <label for="height">Height:</label>
-  <input type="text" id="height" name="height" placeholder="Enter your height..."><br><br>
+  <label for="height">Height (cm):</label>
+  <input type="text" id="height-cm" name="height" placeholder="Enter your height..."><br><br>
+  </div>
+
+  <div id="imperial-units">
+  <label for="weight">Weight (lb):</label>
+  <input type="text" id="weight-lb" name="weight" placeholder="Enter your weight..."><br><br>
+
+  <label for="height">Height (ft):</label>
+  <input type="text" id="height-ft" name="height" placeholder="Enter your height...">
+
+  <label for="height">Height (in):</label>
+  <input type="text" id="height-in" name="height" placeholder="Enter your height..."><br><br>
   </div>
 
 
@@ -64,7 +83,7 @@
         <td>25 to less than 30</td>
       </tr>
       <tr>
-        <td>Obesity</td>
+        <td>Obese</td>
         <td>30 or greater</td>
       </tr>
       <tr>
