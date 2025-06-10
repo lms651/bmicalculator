@@ -37,31 +37,38 @@
   <label for="imperial">Imperial</label>
   </div><br>
 
-  <div id="metric-units">
-  <label for="weight">Weight (kg):</label>
-  <input type="text" id="weight-kg" name="weight" placeholder="Enter your weight..."><br><br>
+  <form id="bmiForm">
+    <div id="metric-units">
+    <label for="weight">Weight (kg):</label>
+    <input type="number" id="weight-kg" name="weight" placeholder="...kg" min="0" max="1000" required><br><br>
 
-  <label for="height">Height (cm):</label>
-  <input type="text" id="height-cm" name="height" placeholder="Enter your height..."><br><br>
+    <label for="height">Height (cm):</label>
+    <input type="number" id="height-cm" name="height" placeholder="...cm" min="0" max="300" required><br><br>
+    </div>
+
+    <div id="imperial-units">
+    <label for="weight">Weight (lb):</label>
+    <input type="number" id="weight-lb" name="weight" placeholder="...lb" min="0" max="1000"><br><br>
+
+    <label for="height">Height (ft):</label>
+    <input type="number" id="height-ft" name="height" placeholder="...ft" min="0" max="10">
+
+    <label for="height">Height (in):</label>
+    <input type="number" id="height-in" name="height" placeholder="...in" min="0" max="11"><br><br>
+    </div>
+    <div>
+    <input id="calc-button" type="Submit" value="Calculate"></div>
   </div>
+  </form>
 
-  <div id="imperial-units">
-  <label for="weight">Weight (lb):</label>
-  <input type="text" id="weight-lb" name="weight" placeholder="Enter your weight..."><br><br>
 
-  <label for="height">Height (ft):</label>
-  <input type="text" id="height-ft" name="height" placeholder="Enter your height...">
 
-  <label for="height">Height (in):</label>
-  <input type="text" id="height-in" name="height" placeholder="Enter your height..."><br><br>
-  </div>
 
+  <div id="result-container"></div><br>
 
   <div>
-    <button id="calc-button">Click to calculate</button>
+    <button id="reset-button">Reset!</button>
   </div>
-
-  <div id="result-container"></div>
 
   <div class="header2" id="table-container">
     <h4>Reference Table</h4>

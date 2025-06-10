@@ -2,42 +2,46 @@ window.addEventListener("DOMContentLoaded", () => {
     const buttonImperial = document.getElementById("imperial")
     buttonImperial.addEventListener('click', showImperial)
 
-    const buttonEl = document.getElementById("calc-button")
-    buttonEl.addEventListener('click', calculateBMI)})
+    const buttonMetric = document.getElementById("metric")
+    buttonMetric.addEventListener('click', showMetric)
+
+    const form = document.getElementById("bmiForm")
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission, only using form for validators
+        calculateBMI()
+    });
+
+    const resetButton = document.getElementById("reset-button")
+    resetButton.addEventListener('click', resetFields)
+})
 
 function showResult(result) {
-    const bmiResult = document.getElementById("result-container").innerText = "YOUR RESULT = " + result.toFixed(2) + " YOUR CATEGORY = " + getBMICategory(result)
+    document.getElementById("result-container").style.display = 'block'
+    document.getElementById("result-container").innerText = "YOUR RESULT = " + result.toFixed(2) + " YOUR CATEGORY = " + getBMICategory(result)
 }
 
 function calculateBMI() {
-    if (isMetric()) {
-        let userHeight = document.getElementById("height-cm").value
-        let userWeight = document.getElementById("weight-kg").value
-        const bmi = bmiCalculation(userHeight, userWeight)
-        showResult(bmi)
+    console.log("HEY")
+    let height = 0 
+    let weight = 0 
+    if (!isMetric()) {
+        const userHeightFt = document.getElementById("height-ft").value
+        const userHeightIn = document.getElementById("height-in").value
+        const userWeightLb = document.getElementById("weight-lb").value
+        let [convertedHeight, convertedWeight] = convertToMetric(userHeightFt, userHeightIn, userWeightLb)
+        height = convertedHeight
+        weight = convertedWeight
     } else {
-        let userHeightFt = document.getElementById("height-ft").value
-        let userHeightIn = document.getElementById("height-in").value
-        let userWeightLb = document.getElementById("weight-lb").value
-        const [value1, value2] = convertToMetric(userHeightFt, userHeightIn, userWeightLb)
-        const bmi = bmiCalculation(value1, value2)
-        console.log(getBMICategory(bmi))
-        showResult(bmi)
+        height = Number(document.getElementById("height-cm").value)
+        weight = Number(document.getElementById("weight-kg").value)
     }
+
+    const bmi = bmiCalculation(height, weight)
+    console.log(bmi)
+    showResult(bmi)
 }
 
-
-
-
-//     const [value1, value2] = convertToMetric(userHeight, userWeight)
-//     console.log(value1, value2)
-//     const bmi = bmiCalculation(value1, value2)
-//     console.log(bmi)
-//     console.log(getBMICategory(bmi))
-//     showResult(bmi)
-// }
-
-function isMetric() {
+function isMetric() { // checks if user check off metric units
     if (document.getElementById("metric").checked) {
         return true
     }
@@ -45,23 +49,16 @@ function isMetric() {
 }
 
 function convertToMetric(heightFt, heightIn, weight) {
-    console.log(heightFt)
-    console.log(heightIn)
-    console.log(weight)
-
     const heightFttoheightIn = Number(heightFt) * 12// converts feet & inches to in
-    console.log(heightFttoheightIn)
     const heightTotalIn = heightFttoheightIn + Number(heightIn)
-    console.log(heightTotalIn)
     const heightCm = heightTotalIn * 2.54 // converts in to cm
 
-    console.log(heightCm)
     const weightKg = weight*.453592 // converts lb to kg
-    console.log(weightKg)
+
     return [heightCm, weightKg]
 }
 
-function bmiCalculation(height, weight) {
+function bmiCalculation(height, weight) { // takes in metric units
     const bmi = weight/((height*.01)*(height*.01))
     return bmi
 }
@@ -81,7 +78,32 @@ function getBMICategory(bmi) {
 }
 
 function showImperial() { // replaces metric input fields with imperial
+    resetFields()
     document.getElementById("metric-units").style.display='none'
     document.getElementById("imperial-units").style.display='block'
+    document.getElementById("weight-lb").required=true
+    document.getElementById("height-ft").required=true
+    document.getElementById("height-in").required=true
+    document.getElementById("weight-kg").required=false
+    document.getElementById("height-cm").required=false
 }
 
+function showMetric() {
+    resetFields()
+    document.getElementById("metric-units").style.display='block'
+    document.getElementById("imperial-units").style.display='none'
+    document.getElementById("weight-kg").required=true
+    document.getElementById("height-cm").required=true
+    document.getElementById("weight-lb").required=false
+    document.getElementById("height-ft").required=false
+    document.getElementById("height-in").required=false
+}
+
+function resetFields() {
+    document.getElementById("height-cm").value = ''
+    document.getElementById("height-ft").value = ''
+    document.getElementById("height-in").value = ''
+    document.getElementById("weight-lb").value = ''
+    document.getElementById("weight-kg").value = ''
+    document.getElementById("result-container").style.display='none'
+}
