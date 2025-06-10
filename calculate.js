@@ -13,7 +13,22 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const resetButton = document.getElementById("reset-button")
     resetButton.addEventListener('click', resetFields)
+
+
+
+    const closeModalButton = document.getElementById("close-modal")
+    closeModalButton.addEventListener('click', closeModal)
+
 })
+
+function showModal() {
+    document.getElementById("result-modal").style.display='block'
+}
+
+function closeModal() {
+    document.getElementById("result-modal").style.display='none'
+    resetFields()
+    }
 
 function showResult(result) {
     document.getElementById("result-container").style.display = 'block'
@@ -21,7 +36,6 @@ function showResult(result) {
 }
 
 function calculateBMI() {
-    console.log("HEY")
     let height = 0 
     let weight = 0 
     if (!isMetric()) {
@@ -39,6 +53,8 @@ function calculateBMI() {
     const bmi = bmiCalculation(height, weight)
     console.log(bmi)
     showResult(bmi)
+
+    showModal()
 }
 
 function isMetric() { // checks if user check off metric units

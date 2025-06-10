@@ -4,15 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Google Font -->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    
+  
     <link rel="stylesheet" href="stylesheet.css"/>
-
-    Materialize
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet"> -->
 
 
     <title>BMI Calculator | Welcome</title>
@@ -40,10 +33,10 @@
   <form id="bmiForm">
     <div id="metric-units">
     <label for="weight">Weight (kg):</label>
-    <input type="number" id="weight-kg" name="weight" placeholder="...kg" min="0" max="1000" required><br><br>
+    <input type="number" id="weight-kg" name="weight" placeholder="...kg" min="0" max="1000"><br><br>
 
     <label for="height">Height (cm):</label>
-    <input type="number" id="height-cm" name="height" placeholder="...cm" min="0" max="300" required><br><br>
+    <input type="number" id="height-cm" name="height" placeholder="...cm" min="0" max="300"><br><br>
     </div>
 
     <div id="imperial-units">
@@ -59,12 +52,18 @@
     <div>
     <input id="calc-button" type="Submit" value="Calculate"></div>
   </div>
-  </form>
+  </form><br>
 
+  <!-- The Modal -->
+  <div id="result-modal" class="modal">
 
-
-
-  <div id="result-container"></div><br>
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="close-modal" class="close">&times;</span>
+    <div id="result-container"></div><br>
+  </div>
+  
+  </div>
 
   <div>
     <button id="reset-button">Reset!</button>
