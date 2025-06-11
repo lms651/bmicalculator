@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
-    <link rel="stylesheet" href="stylesheet.css"/>
+  <!--Google font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet.css"/>
 
 
     <title>BMI Calculator | Welcome</title>
@@ -16,11 +19,33 @@
       }
     </style>
 
+    <style>
+      .center-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+    </style>
+
+    <style>
+      div img {
+      width: 150px;      /* shrink image */
+      height: auto;      /* keep aspect ratio */
+      display: block;    /* make img behave like block */
+      margin: 0 auto;    /* horizontally center */
+      }
+    </style>
+
 </head>
 
 <body>
-  <div class="header">
+  <div class="center-title">
       <h2>BMI Calculator</h2>
+  </div>
+
+  <div>
+    <img src="bmiimage.png" alt="BMI image"><br>
   </div>
 
   <div>Units of Measurement:<br>
@@ -33,10 +58,10 @@
   <form id="bmiForm">
     <div id="metric-units">
     <label for="weight">Weight (kg):</label>
-    <input type="number" id="weight-kg" name="weight" placeholder="...kg" min="0" max="1000"><br><br>
+    <input type="number" id="weight-kg" name="weight" placeholder="...kg" min="0" max="1000" required><br><br>
 
     <label for="height">Height (cm):</label>
-    <input type="number" id="height-cm" name="height" placeholder="...cm" min="0" max="300"><br><br>
+    <input type="number" id="height-cm" name="height" placeholder="...cm" min="0" max="300" required><br><br>
     </div>
 
     <div id="imperial-units">
@@ -50,7 +75,8 @@
     <input type="number" id="height-in" name="height" placeholder="...in" min="0" max="11"><br><br>
     </div>
     <div>
-    <input id="calc-button" type="Submit" value="Calculate"></div>
+    <input id="calc-button" type="Submit" value="Calculate">
+    </div>
   </div>
   </form><br>
 
@@ -66,46 +92,46 @@
   </div>
 
   <div>
-    <button id="reset-button">Reset!</button>
-  </div>
+    <button id="reset-button">Reset</button>
+  </div><br>
+
+<button type="button" class="collapsible">BMI Reference Table</button>
+<div class="content">
 
   <div class="header2" id="table-container">
-    <h4>Reference Table</h4>
     <table>
       <tr>
         <th>BMI Category</th>
-        <th>BMI Range (kg/m2)</th>
+        <th>BMI (kg/m2)</th>
       </tr>
       <tr>
         <td>Underweight</td>
-        <td>Less than 18.5</td>
+        <td>0-18.4</td>
       </tr>
       <tr>
         <td>Healthy Weight</td>
-        <td>18.5 to less than 25</td>
+        <td>18.5-24.9</td>
       </tr>
       <tr>
         <td>Overweight</td>
-        <td>25 to less than 30</td>
-      </tr>
-      <tr>
-        <td>Obese</td>
-        <td>30 or greater</td>
+        <td>25-29.9</td>
       </tr>
       <tr>
         <td>Class 1 Obesity</td>
-        <td>30 to less than 35</td>
+        <td>30-34.9</td>
       </tr>
       <tr>
         <td>Class 2 Obesity</td>
-        <td>35 to less than 40</td>
+        <td>35-39.9</td>
       </tr>
       <tr>
-        <td>Class 3 Obesity (Severe Obesity)</td>
-        <td>40 or greater</td>
+        <td>Class 3 Obesity</td>
+        <td>40+</td>
       </tr>
     </table>
   </div>
+</div>
+
 
   <script type="module" src="app.js"></script>
 </body>

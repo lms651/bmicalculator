@@ -13,12 +13,14 @@ function calculateBMI() {
         height = convertedHeight
         weight = convertedWeight
     } else {
+        console.log(document.getElementById("height-cm").value)
         height = Number(document.getElementById("height-cm").value)
+        console.log(height)
         weight = Number(document.getElementById("weight-kg").value)
+        console.log(weight)
     }
 
     const bmi = bmiCalculation(height, weight)
-    console.log(bmi)
     
     showResult(bmi)
     showModal()
@@ -26,7 +28,9 @@ function calculateBMI() {
 
 function showResult(result) {
     document.getElementById("result-container").style.display = 'block'
-    document.getElementById("result-container").innerText = "YOUR RESULT = " + result.toFixed(2) + " YOUR CATEGORY = " + getBMICategory(result)
+    document.getElementById("result-container").innerHTML =
+    "<strong>YOUR BMI = " + result.toFixed(2) + "</strong><br>" +
+    "<strong>YOUR CATEGORY = " + getBMICategory(result) + "</strong>"
 }
 
 
