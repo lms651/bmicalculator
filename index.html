@@ -4,15 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!--Google font-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="stylesheet.css"/>
+    <!--Supress favicon error-->
+    <link rel="icon" href="data:,">
 
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="stylesheet.css">
 
     <title>BMI Calculator | Welcome</title>
 
+    <!--Presents metric units as default-->
     <style>
       #imperial-units {
         display: none
@@ -30,10 +35,10 @@
 
     <style>
       div img {
-      width: 150px;      /* shrink image */
-      height: auto;      /* keep aspect ratio */
-      display: block;    /* make img behave like block */
-      margin: 0 auto;    /* horizontally center */
+      width: 150px; /* shrink image */
+      height: auto;      
+      display: block;    
+      margin: 0 auto;    
       }
     </style>
 
@@ -41,7 +46,7 @@
 
 <body>
   <div class="center-title">
-      <h2>BMI Calculator</h2>
+      <h1>Calculate My</h1>
   </div>
 
   <div>
@@ -57,33 +62,31 @@
 
   <form id="bmiForm">
     <div id="metric-units">
-    <label for="weight">Weight (kg):</label>
-    <input type="number" id="weight-kg" name="weight" placeholder="...kg" min="0" max="1000" required><br><br>
+    <label for="weight-kg">Weight (kg):</label>
+    <input type="number" step=".01" id="weight-kg" name="weight" placeholder="...kg" min="0" max="1000" required><br><br>
 
-    <label for="height">Height (cm):</label>
-    <input type="number" id="height-cm" name="height" placeholder="...cm" min="0" max="300" required><br><br>
+    <label for="height-cm">Height (cm):</label>
+    <input type="number" step=".01" id="height-cm" name="height" placeholder="...cm" min="0" max="300" required><br><br>
     </div>
 
     <div id="imperial-units">
-    <label for="weight">Weight (lb):</label>
-    <input type="number" id="weight-lb" name="weight" placeholder="...lb" min="0" max="1000"><br><br>
+    <label for="weight-lb">Weight (lb):</label>
+    <input type="number" step=".01" id="weight-lb" name="weight" placeholder="...lb" min="0" max="1000"><br><br>
 
-    <label for="height">Height (ft):</label>
-    <input type="number" id="height-ft" name="height" placeholder="...ft" min="0" max="10">
+    <label for="height-ft">Height (ft):</label>
+    <input type="number" step=".01" id="height-ft" name="height" placeholder="...ft" min="0" max="10">
 
-    <label for="height">Height (in):</label>
-    <input type="number" id="height-in" name="height" placeholder="...in" min="0" max="11"><br><br>
+    <label for="height-in">Height (in):</label>
+    <input type="number" step=".01" id="height-in" name="height" placeholder="...in" min="0" max="11"><br><br>
     </div>
     <div>
     <input id="calc-button" type="Submit" value="Calculate">
     </div>
-  </div>
   </form><br>
 
-  <!-- The Modal -->
+  <!--Modal -->
   <div id="result-modal" class="modal">
 
-  <!-- Modal content -->
   <div class="modal-content">
     <span id="close-modal" class="close">&times;</span>
     <div id="result-container"></div><br>
@@ -95,34 +98,33 @@
     <button id="reset-button">Reset</button>
   </div><br>
 
-<button type="button" class="collapsible">BMI Reference Table</button>
-<div class="content">
-
-  <div class="header2" id="table-container">
+  <button type="button" class="collapsible">BMI Reference Table</button>
+  <div class="content">
+  <div class="table" id="table-container">
     <table>
       <tr>
         <th>BMI Category</th>
-        <th>BMI (kg/m2)</th>
+        <th>BMI (kg/m<sup>2</sup>)</th>
       </tr>
       <tr>
         <td>Underweight</td>
-        <td>0-18.4</td>
+        <td>0–18.4</td>
       </tr>
       <tr>
         <td>Healthy Weight</td>
-        <td>18.5-24.9</td>
+        <td>18.5–24.9</td>
       </tr>
       <tr>
         <td>Overweight</td>
-        <td>25-29.9</td>
+        <td>25–29.9</td>
       </tr>
       <tr>
         <td>Class 1 Obesity</td>
-        <td>30-34.9</td>
+        <td>30–34.9</td>
       </tr>
       <tr>
         <td>Class 2 Obesity</td>
-        <td>35-39.9</td>
+        <td>35–39.9</td>
       </tr>
       <tr>
         <td>Class 3 Obesity</td>
@@ -130,10 +132,10 @@
       </tr>
     </table>
   </div>
-</div>
-
+  </div>
 
   <script type="module" src="app.js"></script>
+
 </body>
 </html>
 

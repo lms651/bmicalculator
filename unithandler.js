@@ -1,6 +1,7 @@
 function convertToMetric(heightFt, heightIn, weight) {
     const heightFttoheightIn = Number(heightFt) * 12 // converts feet & inches to in
-    const heightTotalIn = heightFttoheightIn + Number(heightIn)
+    const heightTotalIn = heightFttoheightIn + Number(heightIn) // total in
+
     const heightCm = heightTotalIn * 2.54 // converts in to cm
 
     const weightKg = weight*.453592 // converts lb to kg
@@ -8,7 +9,7 @@ function convertToMetric(heightFt, heightIn, weight) {
     return [heightCm, weightKg]
 }
 
-function isMetric() { // checks if user check off metric units
+function isMetric() { // checks if user selects metric units
     if (document.getElementById("metric").checked) {
         return true
     }
@@ -26,7 +27,7 @@ function showImperial() { // replaces metric input fields with imperial
     document.getElementById("height-cm").required=false
 }
 
-function showMetric() {
+function showMetric() { // replaces imperial fields with metric
     resetFields()
     document.getElementById("metric-units").style.display='block'
     document.getElementById("imperial-units").style.display='none'
@@ -37,7 +38,7 @@ function showMetric() {
     document.getElementById("height-in").required=false
 }
 
-function resetFields() {
+function resetFields() { // resets all fields but keeps selected units
     document.getElementById("height-cm").value = ''
     document.getElementById("height-ft").value = ''
     document.getElementById("height-in").value = ''

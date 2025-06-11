@@ -1,5 +1,6 @@
 body {
   font-family: "Roboto Condensed", sans-serif;
+  background-color: rgb(244, 238, 238);
 }
 
 #calc-button,
@@ -9,7 +10,7 @@ body {
   font-weight: 700;
 }
 
-/* The Modal (background) */
+/* Modal from W3Schools */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -25,16 +26,17 @@ body {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #becdea;
+  background-color: #dde6f9d4;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid #888;
+  border: 2px solid #373636c5;
   width: 80%; /* Could be more or less, depending on screen size */
+  text-align: center;
 }
 
 /* The Close Button */
 .close {
-  color: #aaa;
+  color: #676363;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -47,10 +49,10 @@ body {
   cursor: pointer;
 }
 
-/*Collapsible Tabe
+/*Collapsible Content from W3Schools
 /* Style the button that is used to open and close the collapsible content */
 .collapsible {
-  background-color: #eee;
+  background-color: #ccc9c9;
   color: #444;
   cursor: pointer;
   padding: 18px;
@@ -63,9 +65,9 @@ body {
   font-size: 20px;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+/* Add a background color to button if it is clicked on */
 .active, .collapsible:hover {
-  background-color: #ccc;
+  background-color: #a4a3a3;
 }
 
 /* Style the collapsible content. Note: hidden by default */
@@ -73,9 +75,10 @@ body {
   padding: 0 18px;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #d6d5d5;
 }
 
+/* Style for table */
 tr {
   padding: 5px;
 }

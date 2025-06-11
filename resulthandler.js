@@ -2,6 +2,7 @@ import {isMetric} from "./unithandler.js"
 import {convertToMetric} from "./unithandler.js"
 import {resetFields} from "./unithandler.js"
 
+// main function
 function calculateBMI() {
     let height = 0 
     let weight = 0 
@@ -20,7 +21,7 @@ function calculateBMI() {
         console.log(weight)
     }
 
-    const bmi = bmiCalculation(height, weight)
+    const bmi = bmiCalculationMetric(height, weight)
     
     showResult(bmi)
     showModal()
@@ -29,12 +30,13 @@ function calculateBMI() {
 function showResult(result) {
     document.getElementById("result-container").style.display = 'block'
     document.getElementById("result-container").innerHTML =
-    "<strong>YOUR BMI = " + result.toFixed(2) + "</strong><br>" +
-    "<strong>YOUR CATEGORY = " + getBMICategory(result) + "</strong>"
+    "<div style='font-size: 1.5em;'><strong><u>RESULT</u></strong><br><br>" +
+    "<strong>YOUR BMI: " + result.toFixed(2) + "</strong><br><br>" +
+    "<strong>BMI CATEGORY: " + getBMICategory(result) + "</strong>"
 }
 
 
-function bmiCalculation(height, weight) { // takes in metric units
+function bmiCalculationMetric(height, weight) { // takes in metric units
     const bmi = weight/((height*.01)*(height*.01))
     return bmi
 }

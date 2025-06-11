@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const form = document.getElementById("bmiForm")
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission, only using form for validators
+        event.preventDefault(); // Prevents default form submission; only uses form for validators
         calculateBMI()
     });
 
